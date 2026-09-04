@@ -2,8 +2,7 @@
 
 A simple **Flappy Bird-style 2D game** built with the **Godot Engine**.
 
-The player controls a bird that must fly through gaps between pipes while avoiding collisions.
-The project includes gameplay scripts, scenes, assets, UI, a day/night cycle, and a game-over system.
+The player controls a bird that must fly through gaps between pipes while avoiding collisions. The project includes gameplay scripts, scenes, assets, UI, a day/night cycle, and a game-over system.
 
 ## 🎮 Features
 
