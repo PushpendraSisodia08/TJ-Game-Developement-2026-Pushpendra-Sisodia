@@ -90,7 +90,7 @@ No license has been specified yet. If this project is published publicly, add an
 
 ## SOME SCREENSHOTS
 
-![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/1st.png?raw=true))
+![Image Alt](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/7647e893bc66ce980ae795eea4d17882299e5f95/1st.png)
 
 ![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/2nd.png?raw=true))
 
