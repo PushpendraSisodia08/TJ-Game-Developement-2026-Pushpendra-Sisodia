@@ -87,3 +87,13 @@ Built with ❤️ using **Godot Engine**.
 ## 📄 License
 
 No license has been specified yet. If this project is published publicly, add an appropriate license here.
+
+## SOME SCREENSHOTS
+
+![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/1st.png?raw=true))
+
+![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/2nd.png?raw=true))
+
+![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/3rd.png?raw=true))
+
+![Image Alt]([image_url](https://github.com/PushpendraSisodia08/TJ-Game-Developement-2026-Pushpendra-Sisodia/blob/main/4th.png?raw=true))
