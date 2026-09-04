@@ -40,8 +40,8 @@ func new_game():
 	scroll_speed = BASE_SCROLL_SPEED
 	pipe_gap = BASE_PIPE_GAP
 	$PipeTimer.wait_time = pipe_gap / scroll_speed
-	$ScoreLabel.text = "SCORE: " + str(score)
-	$GameOver.hide()
+	$UI/ScoreLabel.text = "SCORE: " + str(score)
+	$UI/GameOver.hide()
 	$GameLogo.show()
 	#clear any pipes left over from a previous run BEFORE generating new ones
 	get_tree().call_group("pipes", "queue_free")
@@ -49,7 +49,7 @@ func new_game():
 	#generate starting pipes
 	generate_pipes()
 	$Bird.reset()
-	$ScoreLabel.text = str(score)
+	$UI/ScoreLabel.text = str(score)
 	start.play()
 func _input(event):
 	if game_over == false:
@@ -102,7 +102,7 @@ func generate_pipes():
 	
 func scored():
 	score += 1
-	$ScoreLabel.text = "SCORE: " + str(score)
+	$UI/ScoreLabel.text = "SCORE: " + str(score)
 	point.play()
 	if score % SPEED_UP_INTERVAL == 0:
 		if scroll_speed < MAX_SCROLL_SPEED:
@@ -112,7 +112,7 @@ func scored():
 		$PipeTimer.start(pipe_gap / scroll_speed)
 	if score > highest_score:
 		highest_score = score
-		$HighestScoreLabel.text = "BEST: " + str(highest_score)
+		$UI/HighestScoreLabel.text = "BEST: " + str(highest_score)
 		save_high_score()
 	
 func load_high_score():
@@ -120,7 +120,7 @@ func load_high_score():
 		var save_file = FileAccess.open("user://highscore.save", FileAccess.READ)
 		highest_score = save_file.get_32()
 		save_file.close()
-	$HighestScoreLabel.text = "BEST: " + str(highest_score)
+	$UI/HighestScoreLabel.text = "BEST: " + str(highest_score)
 func save_high_score():
 	var save_file = FileAccess.open("user://highscore.save", FileAccess.WRITE)
 	save_file.store_32(highest_score)
@@ -133,7 +133,7 @@ func check_top():
 		
 func stop_game():
 	$PipeTimer.stop()
-	$GameOver.show()
+	$UI/GameOver.show()
 	$Bird.flying = false
 	game_running = false
 	game_over = true
