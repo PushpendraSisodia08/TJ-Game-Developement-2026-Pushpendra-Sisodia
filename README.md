@@ -80,7 +80,7 @@ This project is being developed as a learning/game-development project. Features
 
 ## 👨‍💻 Author
 
-**Pushpendra**
+**Pushpendra Sisodia**
 
 Built with ❤️ using **Godot Engine**.
 
