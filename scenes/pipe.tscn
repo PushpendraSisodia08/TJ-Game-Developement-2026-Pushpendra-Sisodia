@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://dwlwa86alalbk"]
+
+[ext_resource type="Script" uid="uid://dt82ffvdu2g15" path="res://scenes/pipe.gd" id="1_arpqm"]
+[ext_resource type="Texture2D" uid="uid://b7hkbisfk3a23" path="res://assets/background/pipe.png" id="2_8p0di"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7f4nq"]
+size = Vector2(78, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em7m8"]
+size = Vector2(72, 524)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ly64n"]
+size = Vector2(78, 36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpp7p"]
+size = Vector2(72, 524)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mw483"]
+size = Vector2(20, 205)
+
+[node name="Pipe" type="Area2D" unique_id=590813203]
+script = ExtResource("1_arpqm")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1716951035]
+texture = ExtResource("2_8p0di")
+offset = Vector2(0, 380)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1436509325]
+position = Vector2(0, 118)
+shape = SubResource("RectangleShape2D_7f4nq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=118344968]
+position = Vector2(0, 398)
+shape = SubResource("RectangleShape2D_em7m8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=402069895]
+texture = ExtResource("2_8p0di")
+offset = Vector2(0, -380)
+flip_v = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="." unique_id=634705788]
+position = Vector2(0, -118)
+shape = SubResource("RectangleShape2D_ly64n")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=320732242]
+position = Vector2(0, -398)
+shape = SubResource("RectangleShape2D_gpp7p")
+
+[node name="ScoreArea" type="Area2D" parent="." unique_id=111746590]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoreArea" unique_id=705122151]
+position = Vector2(67, -1.5)
+shape = SubResource("RectangleShape2D_mw483")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="ScoreArea" to="." method="_on_score_area_body_entered"]

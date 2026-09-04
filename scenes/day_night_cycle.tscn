@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://8r8rfmlvmtvr"]
+
+[ext_resource type="Script" uid="uid://hgkoiilvac4" path="res://day_night_cycle.gd" id="1_e4bus"]
+
+[node name="DayNightCycle" type="CanvasModulate" unique_id=72130139]
+script = ExtResource("1_e4bus")

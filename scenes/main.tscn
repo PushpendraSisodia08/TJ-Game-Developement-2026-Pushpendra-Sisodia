@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c8tuov06gawqq"]
+
+[ext_resource type="Script" uid="uid://nslgs6mmvdpx" path="res://scenes/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://txp124pyumim" path="res://scenes/bird.tscn" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://b5n2fx3yq8dog" path="res://scenes/ground.tscn" id="3_sugp2"]
+[ext_resource type="PackedScene" uid="uid://dwlwa86alalbk" path="res://scenes/pipe.tscn" id="4_pipe"]
+[ext_resource type="FontFile" uid="uid://uk02lhpdo6lj" path="res://ui/Caacupe_One/CaacupeOne-Regular.ttf" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://d0o188brifqwf" path="res://scenes/game_over.tscn" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://8r8rfmlvmtvr" path="res://scenes/day_night_cycle.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://itsl7syrdu3q" path="res://assets/audio/die.wav" id="8_tipki"]
+[ext_resource type="AudioStream" uid="uid://faurkubgdlis" path="res://assets/audio/wing.wav" id="9_85g3d"]
+[ext_resource type="AudioStream" uid="uid://4qsyktsjahn8" path="res://assets/audio/point.wav" id="10_ya4ey"]
+[ext_resource type="AudioStream" uid="uid://b1ovi0nexv1yb" path="res://assets/audio/hit.wav" id="11_eb6dy"]
+[ext_resource type="AudioStream" uid="uid://b2jbs1nowqvla" path="res://assets/audio/start.mp3" id="12_eb6dy"]
+[ext_resource type="Texture2D" uid="uid://dtt1yntfakvvl" path="res://assets/background/flappy-bird-logo.webp" id="13_trceg"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sgp6g"]
+load_path = "res://.godot/imported/bg.png-6d9a2dfdac2f3c606b5b3aa2df4daed8.ctex"
+
+[node name="Main" type="Node2D" unique_id=343608961]
+position = Vector2(-1, -2)
+script = ExtResource("1_0wfyh")
+pipe_scene = ExtResource("4_pipe")
+
+[node name="Background" type="Sprite2D" parent="." unique_id=149055401]
+position = Vector2(1, 2)
+scale = Vector2(1, 1.0390625)
+texture = SubResource("CompressedTexture2D_sgp6g")
+offset = Vector2(432, 384)
+
+[node name="Bird" parent="." unique_id=615240873 instance=ExtResource("2_sugp2")]
+position = Vector2(1, 1)
+
+[node name="Ground" parent="." unique_id=430625564 instance=ExtResource("3_sugp2")]
+z_index = 1
+position = Vector2(1, 882)
+
+[node name="PipeTimer" type="Timer" parent="." unique_id=1315120825]
+wait_time = 1.5
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=919304915]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 625.0
+offset_top = -6.0
+offset_right = 736.0
+offset_bottom = 47.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("5_tbgi4")
+theme_override_font_sizes/font_size = 40
+text = "SCORE : 0"
+horizontal_alignment = 1
+autowrap_trim_flags = 64
+
+[node name="HighestScoreLabel" type="Label" parent="." unique_id=2037856989]
+offset_left = 138.0
+offset_top = -10.0
+offset_right = 396.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("5_tbgi4")
+theme_override_font_sizes/font_size = 40
+text = "Highest Score : "
+
+[node name="GameOver" parent="." unique_id=2018170562 instance=ExtResource("6_tefeu")]
+
+[node name="GameLogo" type="TextureRect" parent="." unique_id=1425390092]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 160.0
+offset_top = 159.0
+offset_right = 670.0
+offset_bottom = 276.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("13_trceg")
+
+[node name="DayNightCycle" parent="." unique_id=72130139 instance=ExtResource("7_o6xl0")]
+position = Vector2(1, 2)
+
+[node name="die" type="AudioStreamPlayer2D" parent="." unique_id=1780970121]
+position = Vector2(1, 1)
+stream = ExtResource("8_tipki")
+max_distance = 4096.0
+
+[node name="jump" type="AudioStreamPlayer2D" parent="." unique_id=345201549]
+stream = ExtResource("9_85g3d")
+volume_db = -1.176
+
+[node name="point" type="AudioStreamPlayer2D" parent="." unique_id=1466737022]
+stream = ExtResource("10_ya4ey")
+
+[node name="hit" type="AudioStreamPlayer2D" parent="." unique_id=556798493]
+stream = ExtResource("11_eb6dy")
+
+[node name="start" type="AudioStreamPlayer2D" parent="." unique_id=1776904900]
+stream = ExtResource("12_eb6dy")
+
+[connection signal="hit" from="Ground" to="." method="_on_ground_hit"]
+[connection signal="timeout" from="PipeTimer" to="." method="_on_pipe_timer_timeout"]
+[connection signal="restart" from="GameOver" to="." method="_on_game_over_restart"]
